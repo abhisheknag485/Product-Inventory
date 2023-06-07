@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lavasa Ecommerce Store</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>body{background-image: url('/static/images/bg.jpg');}</style>
+</head>
+<body>
+    <h1>Lavasa Ecommerce Store</h1>
+    
+    <div id="add-product">
+        <h2>Add Product</h2>
+        <form method="POST">
+            <label>Name:</label><input type="text" name="name"/><br>
+            <label>Price:</label><input type="text" name="price"/><br>
+            <label>Description:</label><textarea name="description"></textarea><br>
+            <kabel>Stock:</kabel><textarea name="stock"></textarea>
+            <input type="submit" value="Add"/>
+        </form>
+    </div>
+<br>
+    <h1>Product Inventory</h1>
+    <div id="products">
+        {% for product in products %}
+        <div class="product">
+            <h2>{{ product['name'] }}</h2>
+            <p>Price: Rs.{{ product['price'] }}</p>
+            <p>{{ product['description'] }}</p>
+            <p>{{ product['stock'] }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
